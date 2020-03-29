@@ -32,4 +32,4 @@ TIME: 0.398103
 što znači da, nakon procjene velicine grupe, za generiranje jednog broja je potrebno ~0.4 sekunde što pak odgovara činjenici da je potrebno u jednoj sekundi izgenerirati 2-3 broja.
 
 Situacija default.
-Dobivamo ispis 10 prostih brojeva u heksadekadskom obliku. Za ispis svakog broja je potrebno ~1 sekunda.
+Velicina grupe: 11 480. Dobivamo ispis 10 prostih brojeva u heksadekadskom obliku. Za ispis svakog broja je potrebno ~1 sekunda.

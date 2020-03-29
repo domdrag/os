@@ -119,6 +119,7 @@ int main()
     	inicijaliziraj_buffer(&Main_Buffer);
     	printf("Procjena velicine grupe (~10sec)...\n");
     	procjeni_velicinu_grupe();
+	printf("Velicina grupe: %ld\n",velicina_grupe);
 	//provjera_vremena_za_generiranje_jednog_broja();
     	uint64_t start=(uint64_t)clock()/CLOCKS_PER_SEC;
     	uint64_t broj_ispisa=0,broj;
