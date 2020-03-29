@@ -9,8 +9,8 @@
 
 struct gmp_pomocno
 {
-    gmp_randstate_t stanje;
-    mpz_t slucajan_broj,prosti_broj;
+    	gmp_randstate_t stanje;
+    	mpz_t slucajan_broj,prosti_broj;
 };
 
 void inicijaliziraj_generator(struct gmp_pomocno *p, unsigned id);
