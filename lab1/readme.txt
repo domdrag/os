@@ -8,7 +8,7 @@ Zbrckanost broja 657655514 = 7
 Zbrckanost broja 9555449 = 6,
 
 
-što odgovara prvoj ideji za implementaciju zbrčkanosti (gledamo prozore po 4 bita) jer:
+što odgovara prvoj ideji za implementaciju zbrčkanosti (gledamo prozore po 4 bita i zbrajamo jedinice) jer:
 7=000...0111 
 1231=000...0100 1100 1111
 223421=000...0011 0110 1000 1011 1101
