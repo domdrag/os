@@ -209,11 +209,14 @@ int main(int argc, char *argv[])
 	for (i = 0; i < 3; i++) {
 		BR[i] = i;
 		BR[i+3] = i+3;
-        if (pthread_create (&t[i], NULL, radna_dretva, &BR[i])) {
+        	if (pthread_create (&t[i], NULL, radna_dretva, &BR[i])) {
 			printf("Ne mogu stvoriti novu radnu dretvu!\n");
 			exit(1);
 		}
-        if (pthread_create (&t[i+3], NULL, neradna_dretva, &BR[i+3])) {
+	}
+
+	for (i = 3; i < 6; i++) {
+        	if (pthread_create (&t[i], NULL, neradna_dretva, &BR[i])) {
 			printf("Ne mogu stvoriti novu neradnu dretvu!\n");
 			exit(1);
 		}
