@@ -226,6 +226,8 @@ int main(int argc, char *argv[])
     	kraj = 1;
     	for (i = 0; i < 6; i++)
 		pthread_join (t[i], NULL);
+
+	obrisi_generator(&p);
     	return 0;
 }
 
