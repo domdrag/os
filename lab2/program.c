@@ -157,7 +157,7 @@ void *radna_dretva(void *rbr){
 	inicijaliziraj_generator (&p, *d);
 
 	do {
-		uint64_t broj = generiraj_dobar_broj(&p);
+		uint64_t broj = generiraj_dobar_broj();
 
 		udi_u_ko(*d);
 
