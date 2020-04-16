@@ -72,13 +72,13 @@ uint64_t zbrckanost (uint64_t x){
     	return zbr;
 }
 
-uint64_t generiraj_dobar_broj(){
+uint64_t generiraj_dobar_broj(struct gmp_pomocno *g){
         uint64_t najbolji_broj=0, broj;
     	uint64_t najbolja_zbrckanost=0, z;
     	uint64_t i;
 
     	for (i=0;i < velicina_grupe; ++i){
-        	broj=daj_novi_slucajan_prosti_broj(&p);
+        	broj=daj_novi_slucajan_prosti_broj(g);
         	z=zbrckanost(broj);
         	if (z > najbolja_zbrckanost){
             		najbolja_zbrckanost=z;
@@ -97,7 +97,7 @@ void procjeni_velicinu_grupe(){
     	while ((float)clock()/CLOCKS_PER_SEC < sekundi ){
         	k++;
         	for (i=0;i<M;i++){
-            		broj=generiraj_dobar_broj();
+            		broj=generiraj_dobar_broj(&p);
             		stavi_u_MS(&buffer,broj);
         	}
     	}
@@ -157,7 +157,7 @@ void *radna_dretva(void *rbr){
 	inicijaliziraj_generator (&p, *d);
 
 	do {
-		uint64_t broj = generiraj_dobar_broj();
+		uint64_t broj = generiraj_dobar_broj(&p);
 
 		udi_u_ko(*d);
 
@@ -230,4 +230,3 @@ int main(int argc, char *argv[])
 	obrisi_generator(&p);
     	return 0;
 }
-
