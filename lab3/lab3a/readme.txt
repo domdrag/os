@@ -1,0 +1,53 @@
+Primjer ispisa:j
+
+Procjena velicine grupe (~10sec)...
+Velicina grupe: 9440
+stavio 4ec73bcdfd67475d
+stavio 78076bc27a4d40f1
+stavio 385d3e87f1f62f75
+stavio be386fa2aba03067
+stavio bb5ef015fa025b49
+uzeo 4ec73bcdfd67475d
+stavio ef2508fe4cbae5f7
+uzeo 78076bc27a4d40f1
+uzeo 385d3e87f1f62f75
+stavio 98c4678eae52b2c7
+stavio 62fe06dfda02cf23
+uzeo be386fa2aba03067
+stavio aa6d375e26e0a7f9
+uzeo bb5ef015fa025b49
+uzeo ef2508fe4cbae5f7
+stavio 1b8a7378c1c20c85
+stavio 69a4faf23468e8cb
+uzeo 98c4678eae52b2c7
+stavio af7a75060e98cf1
+uzeo 62fe06dfda02cf23
+stavio 2acf3bcf1fbf2b97
+uzeo aa6d375e26e0a7f9
+stavio 6bcdae3b050f075
+uzeo 1b8a7378c1c20c85
+stavio ea05d94cfc01380f
+uzeo 69a4faf23468e8cb
+stavio a6b4cb38b403f4d3
+uzeo af7a75060e98cf1
+stavio c55d1d2a7a89062d
+uzeo 2acf3bcf1fbf2b97
+stavio 52a4cb1ad4c80e07
+uzeo 6bcdae3b050f075
+stavio 4fb2a2e31d13b1cd
+uzeo ea05d94cfc01380f
+stavio a1ad2cdf1d1af1f1
+uzeo a6b4cb38b403f4d3
+stavio 555b2ae0b3b4a291
+uzeo c55d1d2a7a89062d
+stavio d38c0a057030b275
+uzeo 52a4cb1ad4c80e07
+stavio 51f03b26d0b0bc29
+stavio 58494f301f3491c1
+stavio 73d87030bfc0e32f
+stavio 5beab6b0b3e6054b
+uzeo d38c0a057030b275
+uzeo 51f03b26d0b0bc29
+uzeo 58494f301f3491c1
+
+
