@@ -1,4 +1,4 @@
-Primjer ispisa:j
+Primjer ispisa:
 
 Procjena velicine grupe (~10sec)...
 Velicina grupe: 9440
