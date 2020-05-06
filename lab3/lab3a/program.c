@@ -137,6 +137,13 @@ void *radna_dretva(void *rbr){
             uint64_t broj = generiraj_dobar_broj(&p);
             sem_wait(&semafori[1]);
             sem_wait(&semafori[0]);
+			//Ako je kraj, izbjegavamo koristenje MS-a
+			if(kraj){
+				sem_post(&semafori[1]);
+            	sem_post(&semafori[2]);
+				sem_post(&semafori[0]);
+				break;
+			}
 
             stavi_u_MS(&Main_Buffer, broj);
             printf("stavio %" PRIx64 "\n", broj);
@@ -157,6 +164,13 @@ void *neradna_dretva(void *rbr){
 
             sem_wait(&semafori[2]);
             sem_wait(&semafori[0]);
+			//Ako je kraj, izbjegavamo koristenje MS-a
+			if(kraj){
+				sem_post(&semafori[1]);
+            	sem_post(&semafori[2]);
+				sem_post(&semafori[0]);
+				break;
+			}
             //printf("Ulaz %" PRIx64 "\n", Main_Buffer.ulaz);
             //printf("Izlaz %" PRIx64 "\n", Main_Buffer.izlaz);
             uint64_t broj = uzmi_iz_MS(&Main_Buffer);
@@ -202,6 +216,7 @@ int main(int argc, char *argv[])
 
         sleep(20);
         kraj = 1;
+
         for (i = 0; i < 3; i++){
             sem_post(&semafori[2]);
             sem_post(&semafori[1]);

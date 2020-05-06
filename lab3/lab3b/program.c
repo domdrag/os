@@ -137,9 +137,17 @@ void *radna_dretva(void *rbr){
         inicijaliziraj_generator (&p, *d);
         do {
             uint64_t broj = generiraj_dobar_broj(&p);
-            pthread_mutex_lock (&m);
+            pthread_mutex_lock(&m);
             while (br_praznih == 0)
-			pthread_cond_wait(&red[0], &m);
+				pthread_cond_wait(&red[0], &m);
+
+			//Ako je kraj, izbjegavamo koristenje MS-a
+			if(kraj){
+				pthread_cond_signal(&red[0]);
+        		pthread_cond_signal(&red[1]);
+				pthread_mutex_unlock(&m);
+				break;
+			}
 
             stavi_u_MS(&Main_Buffer, broj);
             printf("stavio %" PRIx64 "\n", broj);
@@ -147,12 +155,12 @@ void *radna_dretva(void *rbr){
             ++br_punih;
             --br_praznih;
             pthread_cond_signal(&red[1]);
-            pthread_mutex_unlock (&m);
+            pthread_mutex_unlock(&m);
         } while (kraj != 1);
 
         obrisi_generator(&p);
 
-	return NULL;
+		return NULL;
 }
 
 void *neradna_dretva(void *rbr){
@@ -160,9 +168,18 @@ void *neradna_dretva(void *rbr){
         do{
             sleep(3);
 
-            pthread_mutex_lock (&m);
+            pthread_mutex_lock(&m);
             while (br_punih == 0)
                 pthread_cond_wait(&red[1], &m);
+
+			//Ako je kraj, izbjegavamo koristenje MS-a
+			if(kraj){
+				pthread_cond_signal(&red[0]);
+        		pthread_cond_signal(&red[1]);
+				pthread_mutex_unlock(&m);
+				break;
+			}
+
             //printf("Ulaz %" PRIx64 "\n", Main_Buffer.ulaz);
             //printf("Izlaz %" PRIx64 "\n", Main_Buffer.izlaz);
             uint64_t broj = uzmi_iz_MS(&Main_Buffer);
@@ -171,7 +188,7 @@ void *neradna_dretva(void *rbr){
             ++br_praznih;
             --br_punih;
             pthread_cond_signal(&red[0]);
-            pthread_mutex_unlock (&m);
+            pthread_mutex_unlock(&m);
         } while (kraj != 1);
 
         return NULL;
@@ -210,10 +227,12 @@ int main(int argc, char *argv[])
 
         sleep(20);
         kraj = 1;
-        for (i = 0; i < 3; i++){
-            pthread_cond_signal(&red[0]);
-            pthread_cond_signal(&red[1]);
-        }
+
+        pthread_cond_broadcast(&red[0]);
+        pthread_cond_broadcast(&red[1]);
+		//Osiguravamo da dretve izadju iz petlji ako je kraj i da prestanu s radom
+		br_punih=1;
+		br_praznih=1;
 
         for (i = 0; i < 6; i++)
             pthread_join(t[i], NULL);
