@@ -140,8 +140,8 @@ void *radna_dretva(void *rbr){
 			//Ako je kraj, izbjegavamo koristenje MS-a
 			if(kraj){
 				sem_post(&semafori[1]);
-            	sem_post(&semafori[2]);
-				sem_post(&semafori[0]);
+                sem_post(&semafori[2]);
+                sem_post(&semafori[0]);
 				break;
 			}
 
@@ -167,8 +167,8 @@ void *neradna_dretva(void *rbr){
 			//Ako je kraj, izbjegavamo koristenje MS-a
 			if(kraj){
 				sem_post(&semafori[1]);
-            	sem_post(&semafori[2]);
-				sem_post(&semafori[0]);
+                sem_post(&semafori[2]);
+                sem_post(&semafori[0]);
 				break;
 			}
             //printf("Ulaz %" PRIx64 "\n", Main_Buffer.ulaz);
