@@ -139,10 +139,10 @@ void *radna_dretva(void *rbr){
             sem_wait(&semafori[0]);
 			//Ako je kraj, izbjegavamo koristenje MS-a
 			if(kraj){
-				sem_post(&semafori[1]);
-                sem_post(&semafori[2]);
-                sem_post(&semafori[0]);
-				break;
+                    sem_post(&semafori[1]);
+                    sem_post(&semafori[2]);
+                    sem_post(&semafori[0]);
+                    break;
 			}
 
             stavi_u_MS(&Main_Buffer, broj);
@@ -166,10 +166,10 @@ void *neradna_dretva(void *rbr){
             sem_wait(&semafori[0]);
 			//Ako je kraj, izbjegavamo koristenje MS-a
 			if(kraj){
-				sem_post(&semafori[1]);
-                sem_post(&semafori[2]);
-                sem_post(&semafori[0]);
-				break;
+                    sem_post(&semafori[1]);
+                    sem_post(&semafori[2]);
+                    sem_post(&semafori[0]);
+                    break;
 			}
             //printf("Ulaz %" PRIx64 "\n", Main_Buffer.ulaz);
             //printf("Izlaz %" PRIx64 "\n", Main_Buffer.izlaz);
