@@ -143,7 +143,7 @@ void *radna_dretva(void *rbr){
                 sem_post(&semafori[2]);
                 sem_post(&semafori[0]);
                 break;
-			}
+            }
 
             stavi_u_MS(&Main_Buffer, broj);
             printf("stavio %" PRIx64 "\n", broj);
@@ -170,7 +170,7 @@ void *neradna_dretva(void *rbr){
                 sem_post(&semafori[2]);
                 sem_post(&semafori[0]);
                 break;
-			}
+            }
             //printf("Ulaz %" PRIx64 "\n", Main_Buffer.ulaz);
             //printf("Izlaz %" PRIx64 "\n", Main_Buffer.izlaz);
             uint64_t broj = uzmi_iz_MS(&Main_Buffer);
