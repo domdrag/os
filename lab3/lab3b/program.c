@@ -230,7 +230,7 @@ int main(int argc, char *argv[])
 
         pthread_cond_broadcast(&red[0]);
         pthread_cond_broadcast(&red[1]);
-		//Osiguravamo da dretve izadju iz petlji ako je kraj i da prestanu s radom
+        //Osiguravamo da dretve izadju iz petlji ako je kraj i da prestanu s radom
         br_punih=1;
         br_praznih=1;
 
