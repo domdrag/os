@@ -12,7 +12,7 @@
 
 #define MASKA(bitova)			(-1 + (1<<(bitova)) )
 #define UZMIBITOVE(broj,prvi,bitova) 	( ( (broj) >> prvi ) & MASKA(bitova) )
-#define BROJ_ITERACIJA          300000000
+#define BROJ_ITERACIJA          	300000000
 
 struct gmp_pomocno p;
 uint64_t velicina_grupe;
